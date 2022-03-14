@@ -24,6 +24,7 @@
     <ProjectGuid>{ce8ce475-6568-44a0-be34-aaf8e8d225ce}</ProjectGuid>
     <RootNamespace>implant</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>reg-payload</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
