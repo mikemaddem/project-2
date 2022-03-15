@@ -1,3 +1,0 @@
-﻿  Source.cpp
-C:\Users\mikem\Desktop\659\project-2\implant\Source.cpp(7,17): warning C4326: return type of 'main' should be 'int' instead of 'void'
-  implant.vcxproj -> C:\Users\mikem\Desktop\659\project-2\implant\Debug\implant.exe
