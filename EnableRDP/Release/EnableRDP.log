@@ -1,0 +1,9 @@
+﻿  EnableRDP.cpp
+C:\Users\mikem\Desktop\659\project-2\EnableRDP\EnableRDP.cpp(8,9): warning C4129: 'S': unrecognized character escape sequence
+C:\Users\mikem\Desktop\659\project-2\EnableRDP\EnableRDP.cpp(8,9): warning C4129: 'C': unrecognized character escape sequence
+C:\Users\mikem\Desktop\659\project-2\EnableRDP\EnableRDP.cpp(8,9): warning C4129: 'T': unrecognized character escape sequence
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 1 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  EnableRDP.vcxproj -> C:\Users\mikem\Desktop\659\project-2\EnableRDP\Release\EnableRDP.exe
