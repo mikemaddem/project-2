@@ -4,6 +4,8 @@ A malicious lnk file that, when run with elevated permissions, creates a new loc
 - malnk.lnk is the execution technique + payload
 - malnk.ps1 is a powershell script for easily generating/modifying the lnk file
 
+DEMO: https://rit.zoom.us/rec/play/4QEwm-hmNDuKv9fBQKJdjOJ9nWFmKgmLTU9tEDPT4zSUy7yi-GHGMiR3xlPd3nOpUiGyVOee9mQxW3cS.31VcCD_clPP8_J5e?continueMode=true
+
 # MITRE ATT&CK
 - User Execution: Malicious File https://attack.mitre.org/techniques/T1204/002/
 - Command and Scripting Interpreter: PowerShell  https://attack.mitre.org/techniques/T1059/001/
